@@ -98,9 +98,9 @@ function renderCardItems() {
   <div>` + listCards[i].price.toLocaleString() + `</div>
   <!-- <div>quantity</div>-->
   <div>
-  <button>+</button>
+  <button><i class="fa-solid fa-plus"></i></button>
 <div class='count'>0</div>
-  <button>-</button>
+  <button><i class="fa-solid fa-minus"></i></button>
   </div>
     `
     cardList.appendChild(newLi);
