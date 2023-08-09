@@ -86,24 +86,31 @@ header .shopping span {
 }
 .list .item {
   text-align: center;
-  background-color: #DCE0E1;
+  background-color: #dce0e1;
   padding: 15px;
   box-shadow: 0 50px 50px #757676;
   letter-spacing: 1px;
 }
-.list .item img{
+.list .item img {
   width: 90%;
 }
-.list .item .title{
+.list .item .title {
   font-weight: 600;
 }
 .list .item .price {
   margin: 10px;
 }
-.list .item button{
-  background-color: #1C1F25;
+.list .item button {
+  background-color: #1c1f25;
   color: #fff;
   padding: 8px 10px;
   width: 100%;
   cursor: pointer;
+}
+.listCard li {
+  display: grid;
+  grid-template-columns: 100px repeat(3, 1fr);
+  color: #fff;
+  row-gap: 10px;
+  margin-bottom:20px ;
 }
