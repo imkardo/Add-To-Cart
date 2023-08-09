@@ -43,10 +43,11 @@ header .shopping span {
   position: fixed;
   top: 0;
   left: 100%;
-  width: 320px;
+  width: 325px;
   background: #453e3b;
   height: 100vh;
   transition: 0.5s;
+  overflow-y:scroll ;
 }
 .card h1 {
   color: #e8bc0e;
@@ -79,7 +80,7 @@ header .shopping span {
   color: #fff;
 }
 .active .card {
-  left: calc(100% - 320px);
+  left: calc(100% - 325px);
 }
 .active .container {
   transform: translateX(-150px);
@@ -107,10 +108,30 @@ header .shopping span {
   width: 100%;
   cursor: pointer;
 }
+.listCard{
+  list-style-type:none ;
+  padding: 0;
+}
 .listCard li {
   display: grid;
-  grid-template-columns: 100px repeat(3, 1fr);
+  grid-template-columns: 90px repeat(3, 1fr);
   color: #fff;
   row-gap: 10px;
-  margin-bottom:20px ;
+  margin-bottom: 20px;
+}
+.listCard li div{
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+}
+.listCard li img{
+  width: 80%;
+}
+.listCard button{
+  border: none;
+  border-radius: 3px;
+  background-color: #fff5;
+  text-align: center;
+  margin: 0 5px;
+  cursor: pointer;
 }
