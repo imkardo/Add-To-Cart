@@ -22,34 +22,34 @@ let products = [
   },
   {
     id: 1,
-    name: "PRODUCT NAME 1",
+    name: "PRODUCT NAME 2",
     image: "image/2.PNG",
     price: 120000,
   },
   {
     id: 2,
-    name: "PRODUCT NAME 1",
+    name: "PRODUCT NAME 3",
     image: "image/3.PNG",
     price: 220000,
   },
   {
     id: 3,
-    name: "PRODUCT NAME 1",
+    name: "PRODUCT NAME 4",
     image: "image/4.PNG",
     price: 320000,
   },
   {
     id: 4,
-    name: "PRODUCT NAME 1",
+    name: "PRODUCT NAME 5",
     image: "image/5.PNG",
     price: 420000,
   },
   {
     id: 5,
-    name: "PRODUCT NAME 1",
+    name: "PRODUCT NAME 6",
     image: "image/6.PNG",
     price: 520000,
-  }
+  },
 ];
 
 let listCards = [];
@@ -58,7 +58,7 @@ function initApp() {
     let newDiv = document.createElement("div");
     newDiv.classList.add("item");
     let orgnizedNumbers = products[i].price.toLocaleString();
-    newDiv.innerHTML =
+    newDiv.innerHTML +=
       ` 
         <img src='` +
       products[i].image +
@@ -85,5 +85,24 @@ function addToCart(id) {
     return p.id == id;
   });
   listCards.push(newObj);
-  console.log(listCards);
+  renderCardItems();
+}
+
+function renderCardItems() {
+  cardList.innerHTML = '';
+  for (let i = 0; i < listCards.length; i++) {
+    let newLi = document.createElement('li');
+    newLi.innerHTML += `
+  <div><img src='`+ listCards[i].image + `' > </div>
+  <div>`+ listCards[i].name + `</div>
+  <div>` + listCards[i].price.toLocaleString() + `</div>
+  <!-- <div>quantity</div>-->
+  <div>
+  <button>+</button>
+<div class='count'>0</div>
+  <button>-</button>
+  </div>
+    `
+    cardList.appendChild(newLi);
+  }
 }
