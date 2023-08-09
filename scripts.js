@@ -15,57 +15,75 @@ closeShopping.addEventListener("click", () => {
 
 let products = [
   {
-    id: 1,
+    id: 0,
     name: "PRODUCT NAME 1",
     image: "image/1.PNG",
+    price: 620000,
+  },
+  {
+    id: 1,
+    name: "PRODUCT NAME 1",
+    image: "image/2.PNG",
     price: 120000,
   },
   {
     id: 2,
     name: "PRODUCT NAME 1",
-    image: "image/2.PNG",
+    image: "image/3.PNG",
     price: 220000,
   },
   {
     id: 3,
     name: "PRODUCT NAME 1",
-    image: "image/3.PNG",
+    image: "image/4.PNG",
     price: 320000,
   },
   {
     id: 4,
     name: "PRODUCT NAME 1",
-    image: "image/4.PNG",
+    image: "image/5.PNG",
     price: 420000,
   },
   {
     id: 5,
     name: "PRODUCT NAME 1",
-    image: "image/5.PNG",
-    price: 520000,
-  },
-  {
-    id: 6,
-    name: "PRODUCT NAME 1",
     image: "image/6.PNG",
-    price: 620000,
-  },
+    price: 520000,
+  }
 ];
- 
+
 let listCards = [];
-function initApp(){
-    for(let i = 0; i < products.length; i++){
-        let newDiv = document.createElement('div');
-        newDiv.classList.add('item');
-        newDiv.innerHTML = ` 
-        <img src='`+ products[i].image +`'/>
-        <div class='title'>`+ products[i].name +`</div>
-        <div class='price'> `+ products[i].price +`</div>
-        <button id='` + products[i].id + `'>Add To Cart</button>
-        `
-        
-        list.appendChild(newDiv)
-    }
-    
+function initApp() {
+  for (let i = 0; i < products.length; i++) {
+    let newDiv = document.createElement("div");
+    newDiv.classList.add("item");
+    let orgnizedNumbers = products[i].price.toLocaleString();
+    newDiv.innerHTML =
+      ` 
+        <img src='` +
+      products[i].image +
+      `'/>
+        <div class='title'>` +
+      products[i].name +
+      `</div>
+        <div class='price'> ` +
+      orgnizedNumbers +
+      `</div>
+        <button class='button' onclick='addToCart(` +
+      products[i].id +
+      `)' id='` +
+      products[i].id +
+      `'>Add To Cart</button>
+        `;
+    list.appendChild(newDiv);
+  }
 }
 initApp();
+
+function addToCart(id) {
+  let newObj = products.find(function (p) {
+    return p.id == id;
+  });
+  listCards.push(newObj);
+  console.log(listCards);
+}
