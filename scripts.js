@@ -5,7 +5,7 @@ let cardList = document.querySelector(".listCard");
 let body = document.querySelector("body");
 let total = document.querySelector(".total");
 let quantity = document.querySelector(".quantity");
-
+let totalPriceEl = document.querySelector(".total-price");
 openShopping.addEventListener("click", () => {
   body.classList.add("active");
 });
@@ -97,6 +97,7 @@ function addToCart(id) {
 
   // console.log(listCards)
   renderCardItems();
+  renderTotal();
 }
 
 function renderCardItems() {
@@ -107,7 +108,6 @@ function renderCardItems() {
   <div><img src='`+ listCards[i].image + `' > </div>
   <div>`+ listCards[i].name + `</div>
   <div>` + listCards[i].price.toLocaleString() + `</div>
-  <!-- <div>quantity</div>-->
   <div>
   <button onclick="changeNumberOfUnits('plus', ` + listCards[i].id + `)"><i class="fa-solid fa-plus"></i></button>
 <div class='count'>`+ listCards[i].numberOfUnits + `</div>
@@ -133,4 +133,16 @@ function changeNumberOfUnits(action, id) {
   });
   // console.log(listCard);
   renderCardItems();
+  renderTotal();
+}
+function renderTotal() {
+  let totalItems = 0;
+  let totalPrice = 0;
+  for (let i = 0; i < listCards.length; i++) {
+    totalItems += listCards[i].numberOfUnits;
+    totalPrice += listCards[i].price * listCards[i].numberOfUnits;
+  }
+  totalPriceEl.innerHTML = totalPrice.toLocaleString() + " ﷼";
+  total.innerHTML = totalItems + " Item";
+  quantity.innerHTML = totalItems;
 }
