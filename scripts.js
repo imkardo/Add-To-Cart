@@ -81,10 +81,21 @@ function initApp() {
 initApp();
 
 function addToCart(id) {
-  let newObj = products.find(function (p) {
-    return p.id == id;
+  let itemId = listCards.some(function (item) {
+    return item.id == id;
   });
-  listCards.push(newObj);
+
+  if (itemId) {
+    changeNumberOfUnits('plus', id);
+  } else {
+    let newObj = products.find(function (p) {
+      return p.id == id;
+    });
+    newObj.numberOfUnits = 1;
+    listCards.push(newObj);
+  }
+
+  // console.log(listCards)
   renderCardItems();
 }
 
@@ -98,11 +109,28 @@ function renderCardItems() {
   <div>` + listCards[i].price.toLocaleString() + `</div>
   <!-- <div>quantity</div>-->
   <div>
-  <button><i class="fa-solid fa-plus"></i></button>
-<div class='count'>0</div>
-  <button><i class="fa-solid fa-minus"></i></button>
+  <button onclick="changeNumberOfUnits('plus', ` + listCards[i].id + `)"><i class="fa-solid fa-plus"></i></button>
+<div class='count'>`+ listCards[i].numberOfUnits + `</div>
+  <button onclick="changeNumberOfUnits('minus', ` + listCards[i].id + `)"><i class="fa-solid fa-minus"></i></button>
   </div>
     `
     cardList.appendChild(newLi);
   }
+}
+function changeNumberOfUnits(action, id) {
+  // console.log(action + ' - ' + id)
+  let listCard = listCards.map(function (item) {
+    let oldNumberOfUnits = item.numberOfUnits;
+    if (item.id == id) {
+      if (action == 'plus') {
+        oldNumberOfUnits++;
+      } else if (action == 'minus' && oldNumberOfUnits > 1) {
+        oldNumberOfUnits--;
+      }
+    }
+    item.numberOfUnits = oldNumberOfUnits;
+    return item;
+  });
+  // console.log(listCard);
+  renderCardItems();
 }

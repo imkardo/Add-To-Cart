@@ -43,7 +43,7 @@ header .shopping span {
   position: fixed;
   top: 0;
   left: 100%;
-  width: 325px;
+  width: 335px;
   background: #453e3b;
   height: 100vh;
   transition: 0.5s;
@@ -65,7 +65,7 @@ header .shopping span {
   justify-content: space-between;
   align-items: center;
   height: 45px;
-  width: 325px;
+  width: 335px;
   padding: 0;
 }
 
@@ -84,7 +84,7 @@ header .shopping span {
   background: #e8bc0e;
 }
 .active .card {
-  left: calc(100% - 325px);
+  left: calc(100% - 335px);
 }
 .active .container {
   transform: translateX(-150px);
