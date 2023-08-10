@@ -47,7 +47,7 @@ header .shopping span {
   background: #453e3b;
   height: 100vh;
   transition: 0.5s;
-  overflow-y:scroll ;
+  overflow-y: scroll;
 }
 .card h1 {
   color: #e8bc0e;
@@ -59,25 +59,29 @@ header .shopping span {
   align-items: center;
 }
 .card .checkout {
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px;
+  width: 325px;
+  padding: 0;
 }
+
 .card .checkout div {
-  background-color: #e8bc0e;
-  width: 100%;
+  background: #1c1f25;
+  width: 50%;
   height: 45px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-weight: bold;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
   cursor: pointer;
 }
-.card .checkout div:nth-child(2) {
-  background-color: #1c1f25;
-  color: #fff;
+.card .checkout .total{
+  background: #e8bc0e;
 }
 .active .card {
   left: calc(100% - 325px);
@@ -108,9 +112,10 @@ header .shopping span {
   width: 100%;
   cursor: pointer;
 }
-.listCard{
-  list-style-type:none ;
+.listCard {
+  list-style-type: none;
   padding: 0;
+  margin-bottom:50px ;
 }
 .listCard li {
   display: grid;
@@ -119,15 +124,15 @@ header .shopping span {
   row-gap: 10px;
   margin-bottom: 20px;
 }
-.listCard li div{
+.listCard li div {
   display: flex;
-  justify-content:center ;
+  justify-content: center;
   align-items: center;
 }
-.listCard li img{
+.listCard li img {
   width: 80%;
 }
-.listCard button{
+.listCard button {
   border: none;
   border-radius: 3px;
   background-color: #fff5;
