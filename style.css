@@ -70,18 +70,33 @@ header .shopping span {
 }
 
 .card .checkout div {
-  background: #1c1f25;
+  background: #e8bc0e;
   width: 50%;
   height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
   font-weight: 600;
   cursor: pointer;
 }
-.card .checkout .total{
-  background: #e8bc0e;
+.card .checkout .closeShopping {
+  background: #1c1f25;
+  color: #fff;
+}
+.card .total-price {
+  background-color: #e8bc0e;
+  position: fixed;
+  bottom: 45px;
+  padding: 5px 0;
+  width: 335px;
+  text-align: center;
+  font-weight: 600;
+  color: #1c1f25;
+}
+.card .total {
+  border-top: 1px solid #453e3b;
+  box-sizing: border-box;
+  color: #1c1f25;
 }
 .active .card {
   left: calc(100% - 335px);
@@ -95,6 +110,7 @@ header .shopping span {
   padding: 15px;
   box-shadow: 0 50px 50px #757676;
   letter-spacing: 1px;
+  border-radius: 3px;
 }
 .list .item img {
   width: 90%;
@@ -115,7 +131,7 @@ header .shopping span {
 .listCard {
   list-style-type: none;
   padding: 0;
-  margin-bottom:50px ;
+  margin-bottom: 85px;
 }
 .listCard li {
   display: grid;
