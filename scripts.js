@@ -106,7 +106,7 @@ function renderCardItems() {
     let newLi = document.createElement('li');
     newLi.innerHTML += `
   <div><img src='`+ listCards[i].image + `' > </div>
-  <div>`+ listCards[i].name + `</div>
+  <div><h4 onclick="deleteFromCard(`+ listCards[i].id + `)">` + listCards[i].name + `</h4></div>
   <div>` + listCards[i].price.toLocaleString() + `</div>
   <div>
   <button onclick="changeNumberOfUnits('plus', ` + listCards[i].id + `)"><i class="fa-solid fa-plus"></i></button>
@@ -119,7 +119,7 @@ function renderCardItems() {
 }
 function changeNumberOfUnits(action, id) {
   // console.log(action + ' - ' + id)
-  let listCard = listCards.map(function (item) {
+  listCards = listCards.map(function (item) {
     let oldNumberOfUnits = item.numberOfUnits;
     if (item.id == id) {
       if (action == 'plus') {
@@ -145,4 +145,11 @@ function renderTotal() {
   totalPriceEl.innerHTML = totalPrice.toLocaleString() + " ﷼";
   total.innerHTML = totalItems + " Item";
   quantity.innerHTML = totalItems;
+}
+function deleteFromCard(id) {
+  listCards = listCards.filter(function (item) {
+    return item.id != id;
+  });
+  renderCardItems();
+  renderTotal();
 }
