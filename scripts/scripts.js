@@ -6,6 +6,8 @@ let body = document.querySelector("body");
 let total = document.querySelector(".total");
 let quantity = document.querySelector(".quantity");
 let totalPriceEl = document.querySelector(".total-price");
+
+// When Member click Open The Card
 openShopping.addEventListener("click", () => {
   body.classList.add("active");
 });
@@ -13,6 +15,7 @@ closeShopping.addEventListener("click", () => {
   body.classList.remove("active");
 });
 
+// Array of Objects / List Of Products items
 let products = [
   {
     id: 0,
@@ -52,14 +55,17 @@ let products = [
   },
 ];
 
+// Array Of Objects / List Of Items In a Cart
 let listCards = [];
+
+// Orgnize List Of Items In The Main Page Of shopping Cart
 function initApp() {
   for (let i = 0; i < products.length; i++) {
     let newDiv = document.createElement("div");
     newDiv.classList.add("item");
     let orgnizedNumbers = products[i].price.toLocaleString();
     newDiv.innerHTML +=
-      ` 
+      `
         <img src='` +
       products[i].image +
       `'/>
@@ -80,6 +86,7 @@ function initApp() {
 }
 initApp();
 
+// Add To the Card When Member Click On Add To Cart
 function addToCart(id) {
   let itemId = listCards.some(function (item) {
     return item.id == id;
@@ -95,11 +102,11 @@ function addToCart(id) {
     listCards.push(newObj);
   }
 
-  // console.log(listCards)
   renderCardItems();
   renderTotal();
 }
 
+// Render New Items Who Recently Added To Card
 function renderCardItems() {
   cardList.innerHTML = '';
   for (let i = 0; i < listCards.length; i++) {
@@ -117,8 +124,9 @@ function renderCardItems() {
     cardList.appendChild(newLi);
   }
 }
+
+// Unit Of Added Items To Card / Plus And Minus Button To Sit Unit Of items
 function changeNumberOfUnits(action, id) {
-  // console.log(action + ' - ' + id)
   listCards = listCards.map(function (item) {
     let oldNumberOfUnits = item.numberOfUnits;
     if (item.id == id) {
@@ -131,10 +139,11 @@ function changeNumberOfUnits(action, id) {
     item.numberOfUnits = oldNumberOfUnits;
     return item;
   });
-  // console.log(listCard);
   renderCardItems();
   renderTotal();
 }
+
+// Render The Unit And Price Of The Items
 function renderTotal() {
   let totalItems = 0;
   let totalPrice = 0;
@@ -153,3 +162,5 @@ function deleteFromCard(id) {
   renderCardItems();
   renderTotal();
 }
+
+// Made By Kardo Heydari
