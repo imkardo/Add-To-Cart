@@ -148,6 +148,14 @@ header .shopping span {
 .listCard li img {
   width: 80%;
 }
+.listCard li div h4{
+  padding: 1px;
+  border-radius: 2px;
+}
+.listCard li div h4:hover{
+  background: #ff1919;
+  cursor: pointer;
+}
 .listCard button {
   border: none;
   border-radius: 3px;
